@@ -23,13 +23,13 @@ If you find the project useful for your research, please cite:
 
 ## 0. Install
 
-This implementation is tested under Pytorch 1.0.0. To avoid affecting your Pytorch version, we recommend using conda to enable multiple versions of Pytorch.
+This implementation is tested under Pytorch 1.6.0. To avoid affecting your Pytorch version, we recommend using conda to enable multiple versions of Pytorch.
 
-0.0. Install Pytorch:
+0.0. Install Pytorch: (Note: Also tested with just using pip for Docker)
 ```
     conda create -n env_stereo python=3.6
     conda activate env_stereo
-    conda install pytorch=1.0.0 cuda90 -c pytorch
+    conda install pytorch=1.6.0 -c pytorch
     conda install torchvision -c pytorch
 ```
 0.1. Other dependencies:
