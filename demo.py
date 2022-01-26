@@ -130,9 +130,9 @@ if __name__ == '__main__':
 
     info = torch.from_numpy(info)
 
-    im_left_data.data.resize_(img_left.size()).copy_(img_left)
-    im_right_data.data.resize_(img_right.size()).copy_(img_right)
-    im_info.data.resize_(info.size()).copy_(info)
+    im_left_data.resize_(img_left.size()).copy_(img_left)
+    im_right_data.resize_(img_right.size()).copy_(img_right)
+    im_info.resize_(info.size()).copy_(info)
     
     det_tic = time.time()
     rois_left, rois_right, cls_prob, bbox_pred, bbox_pred_dim, kpts_prob,\
@@ -330,7 +330,7 @@ if __name__ == '__main__':
 
     im2show = np.concatenate((im2show_left, im2show_right), axis=0)
     im2show = np.concatenate((im2show, im_box), axis=1)
-    cv2.imshow('result', im2show)
+    cv2.imwrite('result.png', im2show)
 
     k = cv2.waitKey(-1)
     if k == 27:    # Esc key to stop

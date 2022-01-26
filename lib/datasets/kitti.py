@@ -45,7 +45,7 @@ class kitti(imdb):
         self._data_path = os.path.join(self._kitti_path)
         self._classes = ('__background__', 'Car')
         self._class_to_ind = dict(zip(self.classes, xrange(self.num_classes)))
-        self._image_ext = '.png'
+        self._image_ext = '.jpeg'
         self._image_index = self._load_image_set_index_new()
         # Default to roidb handler
         self._roidb_handler = self.gt_roidb
@@ -146,7 +146,7 @@ class kitti(imdb):
         '''
         ix = 0 if left else 1
 
-        depth_line = np.zeros(1260, dtype=float)
+        depth_line = np.zeros(12600, dtype=float)
         for i in range(len(objects)):
             for col in range(int(objects[i].boxes[ix].box[0]), int(objects[i].boxes[ix].box[2])+1):
                 pixel = depth_line[col]
@@ -211,7 +211,7 @@ class kitti(imdb):
             objects_origin = self.remove_occluded_keypoints(objects_origin, left=False)
 
             for i in range(len(objects_origin)):
-                if objects_origin[i].truncate < 0.98 and objects_origin[i].occlusion < 3 and \
+                if objects_origin[i].truncate < 0.98 and objects_origin[i].occlusion <= 3 and \
                    (objects_origin[i].boxes[0].box[3] - objects_origin[i].boxes[0].box[1])>10 and \
                    objects_origin[i].cls in self._classes and \
                    objects_origin[i].boxes[0].visible_right - objects_origin[i].boxes[0].visible_left > 3 and\
