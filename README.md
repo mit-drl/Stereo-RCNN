@@ -36,7 +36,7 @@ This implementation is tested under Pytorch 1.6.0. To avoid affecting your Pytor
 ```
     git clone git@github.com:HKUST-Aerial-Robotics/Stereo-RCNN.git
     cd stereo_rcnn
-    git checkout 1.0
+    git checkout 1.6
     pip install -r requirements.txt
 ```
 0.2. Build:
